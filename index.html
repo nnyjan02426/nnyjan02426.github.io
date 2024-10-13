@@ -18,24 +18,45 @@
     <h1>Welcome to Nian-Ying Jan's Website!</h1>
   </header>
 
-  <hr>
-
-  <nav>
-    <h2>Index</h2>
+  <h2>Index</h2>
+  <div class="flex">
     <ol>
       <li><a href="#about">About Me</a></li>
-      <li><a href="#project">Projects</a></li>
+      <li><a href="#projects">Projects</a></li>
       <li><a href="#contact">Contact</a></li>
     </ol>
-  </nav>
 
+    <div class="secondObject">
+      <input type="text" id="color-input" placeholder="enter color hex code">
+      <button id="color-button">OK!</button>
+      <div id="color-box"
+        style="margin: auto width: 100px; height: 100px; background-color: white; border: 1px solid black;"></div>
+    </div>
+  </div>
+
+  <hr>
 
   <section id="about">
     <h2>About Me</h2>
+    <p>just some average uni student</p>
   </section>
 
-  <section id="project">
+  <section id="projects">
     <h2>Projects</h2>
+    <ul>
+      <li class="flex">
+        <div class="projectName">
+          <b>Schedrag</b> <a href="https://github.com/nnyjan02426/Schedrag">[repo link]</a><br>
+          Create your time schedule by dragging blocks!
+        </div>
+        <div class="secondObject">
+          <a href="https://flutter.dev/">
+            <img src="https://storage.googleapis.com/cms-storage-bucket/6a07d8a62f4308d2b854.svg"
+              alt="made with flutter" width="160">
+          </a>
+        </div>
+      </li>
+    </ul>
   </section>
 
   <section id="contact">
@@ -52,8 +73,21 @@
   </footer>
 
   <script>
-    // Get the last modified date of the document
+    // Get the last modified date of website
     document.getElementById("last-modified").textContent = document.lastModified;
+
+    // set color depending on user's input
+    document.getElementById('color-button').addEventListener('click', function () {
+      const colorValue = document.getElementById('color-input').value;
+      // Regular expression to validate hex color
+      const validInput = /^#([0-9A-F]{3}|[0-9A-F]{6})$/i.test(colorValue);
+
+      if (validInput) {
+        document.getElementById('color-box').style.backgroundColor = colorValue; // Change the box color
+      } else {
+        alert('Invalid input.\nPlease enter a valid hex color code.\n(e.g., #2a321f).');
+      }
+    });
   </script>
 </body>
 
