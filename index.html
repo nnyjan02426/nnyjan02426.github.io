@@ -1,12 +1,60 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="styles.css">
-    <title>NNY's Portfolio</title>
-  </head>
-  <body>
-    <h1>Hi</h1>
-  </body>
-</html>
+<html lang="en">
 
+<head>
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- custom fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&family=Caveat:wght@500&display=swap"
+    rel="stylesheet">
+  <title>NNY's Site</title>
+</head>
+
+<body>
+  <header>
+    <h1>Welcome to Nian-Ying Jan's Website!</h1>
+  </header>
+
+  <hr>
+
+  <nav>
+    <h2>Index</h2>
+    <ol>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#project">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ol>
+  </nav>
+
+
+  <section id="about">
+    <h2>About Me</h2>
+  </section>
+
+  <section id="project">
+    <h2>Projects</h2>
+  </section>
+
+  <section id="contact">
+    <h2>Contacts</h2>
+    <ul>
+      <li>github: <a href="https://github.com/nnyjan02426">nnyjan02426</a> </li>
+      <li>email: <a href="mailto:nnyjan02426@gmail.com">nnyjan02426@gmail.com</a>
+    </ul>
+  </section>
+
+  <footer>
+    <p>website created by nnyjan02426</p>
+    <p>Last updated: <span id="last-modified"></span></p>
+  </footer>
+
+  <script>
+    // Get the last modified date of the document
+    document.getElementById("last-modified").textContent = document.lastModified;
+  </script>
+</body>
+
+</html>
