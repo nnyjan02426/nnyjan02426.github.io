@@ -8,7 +8,8 @@
   <!-- custom fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&family=Caveat:wght@500&display=swap"
+  <link
+    href="https://fonts.googleapis.com/css2?family=Akaya+Kanadaka&family=Caveat+Brush&family=Caveat:wght@500&display=swap"
     rel="stylesheet">
   <title>NNY's Site</title>
 </head>
@@ -18,19 +19,24 @@
     <h1>Welcome to Nian-Ying Jan's Website!</h1>
   </header>
 
-  <h2>Index</h2>
-  <div class="flex">
-    <ol>
-      <li><a href="#about">About Me</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ol>
+  <div class="row-1">
+    <div id="col-index">
+      <h2>Index</h2>
+      <nav>
+        <ol>
+          <li><a href="#about">About Me</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ol>
+      </nav>
+    </div>
 
-    <div class="secondObject">
-      <input type="text" id="color-input" placeholder="enter color hex code">
+    <div id="col-color">
+      <input type="text" id="color-input" placeholder="#FFFFFF">
       <button id="color-button">OK!</button>
-      <div id="color-box"
-        style="margin: auto width: 100px; height: 100px; background-color: white; border: 1px solid black;"></div>
+      <div id="color-box">
+        <p id="color-box-text"></p>
+      </div>
     </div>
   </div>
 
@@ -44,16 +50,18 @@
   <section id="projects">
     <h2>Projects</h2>
     <ul>
-      <li class="flex">
-        <div class="projectName">
-          <b>Schedrag</b> <a href="https://github.com/nnyjan02426/Schedrag">[repo link]</a><br>
-          Create your time schedule by dragging blocks!
-        </div>
-        <div class="secondObject">
-          <a href="https://flutter.dev/">
-            <img src="https://storage.googleapis.com/cms-storage-bucket/6a07d8a62f4308d2b854.svg"
-              alt="made with flutter" width="160">
-          </a>
+      <li>
+        <div class="row-project">
+          <div id="col-project_name">
+            <b>Schedrag</b> <a href="https://github.com/nnyjan02426/Schedrag">[repo link]</a><br>
+            Create your time schedule by dragging blocks!
+          </div>
+          <div id="col-lang">
+            <a href="https://flutter.dev/">
+              <img class="lang-img" src="https://storage.googleapis.com/cms-storage-bucket/6a07d8a62f4308d2b854.svg"
+                alt="made with flutter" width="160px">
+            </a>
+          </div>
         </div>
       </li>
     </ul>
@@ -76,6 +84,9 @@
     // Get the last modified date of website
     document.getElementById("last-modified").textContent = document.lastModified;
 
+    // text in color box
+    document.getElementById("color-box-text").textContent = "try changing the color here!";
+
     // set color depending on user's input
     document.getElementById('color-button').addEventListener('click', function () {
       const colorValue = document.getElementById('color-input').value;
@@ -84,6 +95,7 @@
 
       if (validInput) {
         document.getElementById('color-box').style.backgroundColor = colorValue; // Change the box color
+        document.getElementById("color-box-text").textContent = "";
       } else {
         alert('Invalid input.\nPlease enter a valid hex color code.\n(e.g., #2a321f).');
       }
