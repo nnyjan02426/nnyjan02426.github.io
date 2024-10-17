@@ -14,66 +14,68 @@
   <title>NNY's Site</title>
 </head>
 
-<body>
+<body class="page">
   <header>
     <h1>Welcome to Nian-Ying Jan's Website!</h1>
   </header>
 
-  <div class="row-1">
-    <div id="col-index">
-      <h2>Index</h2>
-      <nav>
-        <ol>
-          <li><a href="#about">About Me</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ol>
-      </nav>
-    </div>
+  <main>
+    <div class="row-1">
+      <div id="col-index">
+        <h2>Index</h2>
+        <nav>
+          <ol>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ol>
+        </nav>
+      </div>
 
-    <div id="col-color">
-      <input type="text" id="color-input" placeholder="#FFFFFF">
-      <button id="color-button">OK!</button>
-      <div id="color-box">
-        <p id="color-box-text"></p>
+      <div id="col-color">
+        <input type="text" id="color-input" placeholder="#FFFFFF">
+        <button id="color-button">OK!</button>
+        <div id="color-box">
+          <p id="color-box-text"></p>
+        </div>
       </div>
     </div>
-  </div>
 
-  <hr>
+    <hr>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>just some average uni student</p>
-  </section>
+    <section id="about">
+      <h2>About Me</h2>
+      <p>just some average uni student</p>
+    </section>
 
-  <section id="projects">
-    <h2>Projects</h2>
-    <ul>
-      <li>
-        <div class="row-project">
-          <div id="col-project_name">
-            <b>Schedrag</b> <a href="https://github.com/nnyjan02426/Schedrag">[repo link]</a><br>
-            Create your time schedule by dragging blocks!
+    <section id="projects">
+      <h2>Projects</h2>
+      <ul>
+        <li>
+          <div class="row-project">
+            <div id="col-project_name">
+              <b>Schedrag</b> <a href="https://github.com/nnyjan02426/Schedrag">[repo link]</a><br>
+              Create your time schedule by dragging blocks!
+            </div>
+            <div id="col-lang">
+              <a href="https://flutter.dev/">
+                <img class="lang-img" src="https://storage.googleapis.com/cms-storage-bucket/6a07d8a62f4308d2b854.svg"
+                  alt="made with flutter" width="160px">
+              </a>
+            </div>
           </div>
-          <div id="col-lang">
-            <a href="https://flutter.dev/">
-              <img class="lang-img" src="https://storage.googleapis.com/cms-storage-bucket/6a07d8a62f4308d2b854.svg"
-                alt="made with flutter" width="160px">
-            </a>
-          </div>
-        </div>
-      </li>
-    </ul>
-  </section>
+        </li>
+      </ul>
+    </section>
 
-  <section id="contact">
-    <h2>Contacts</h2>
-    <ul>
-      <li>github: <a href="https://github.com/nnyjan02426">nnyjan02426</a> </li>
-      <li>email: <a href="mailto:nnyjan02426@gmail.com">nnyjan02426@gmail.com</a>
-    </ul>
-  </section>
+    <section id="contact">
+      <h2>Contacts</h2>
+      <ul>
+        <li>github: <a href="https://github.com/nnyjan02426">nnyjan02426</a> </li>
+        <li>email: <a href="mailto:nnyjan02426@gmail.com">nnyjan02426@gmail.com</a>
+      </ul>
+    </section>
+  </main>
 
   <footer>
     <p>website created by nnyjan02426</p>
@@ -85,7 +87,7 @@
     document.getElementById("last-modified").textContent = document.lastModified;
 
     // text in color box
-    document.getElementById("color-box-text").textContent = "try changing the color here!";
+    document.getElementById("color-box-text").textContent = "try changing the color of this box!";
 
     // set color depending on user's input
     document.getElementById('color-button').addEventListener('click', function () {
