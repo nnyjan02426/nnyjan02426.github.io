@@ -11,7 +11,15 @@
   min-height: 100vh;
   padding: 0;
   margin: 0;
-  /* 100% screen height */
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
 }
 
 body {
@@ -32,13 +40,13 @@ header {
 
 main {
   flex: 1;
-  padding: 1%;
+  padding: 2%;
 }
 
 footer {
   text-align: center;
   font-family: "Akaya Kanadaka";
-  font-size: xx-small;
+  font-size: small;
   padding: 0.5% 0 0.5% 0;
   margin: 0 -5% -5% -5%;
   line-height: 0.1rem;
@@ -67,43 +75,55 @@ a:hover {
   font-weight: 700;
 }
 
+button {
+  margin-bottom: -0.5%;
+}
+
 #color-input {
-  width: 75%;
-  font-size: x-small;
+  display: flex;
+  width: 100%;
+  font-size: small;
 }
 
-#color-button {
-  font-size: x-small;
+#color-input>input {
+  flex: 1;
 }
 
-#color-box {
-  margin-top: 2%;
-  width: 95%;
+.box {
+  margin-top: 1%;
+  width: 100%;
   height: 100px;
   background-color: white;
   border: 2px solid #00004F;
 }
 
-#color-box-text {
-  font-size: xx-small;
+#color-box>p {
+  font-size: small;
   color: gray;
   text-align: center;
   vertical-align: middle;
+}
+
+#quote-box {
+  border: none;
+  background-color: #DDA0DD60;
+  border-radius: 1em;
+  padding: 0.5em 2em 1em 1em;
+  height: auto;
+}
+
+#quote-cite {
+  text-align: right;
 }
 
 @media only screen and (min-width: 700px) {
   [class*="row-"] {
     display: flex;
     justify-content: space-between;
-    /*box-sizing: border-box;*/
   }
 
   #col-index {
     width: 80%;
-  }
-
-  #col-color {
-    margin: 4% 2% auto auto;
   }
 
   #col-project_name {
@@ -126,7 +146,9 @@ a:hover {
 }
 
 hr {
-  height: 2px;
+  height: 0.2em;
+  border-radius: 10%;
+  border: #00004F;
   background-color: #00004F;
 }
 

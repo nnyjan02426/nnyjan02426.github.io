@@ -21,23 +21,23 @@
 
   <main>
     <div class="row-1">
-      <div id="col-index">
+      <div id="index">
         <h2>Index</h2>
         <nav>
           <ol>
             <li><a href="#about">About Me</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#contact">Contact</a></li>
+            <li><a href="#funs">FUN INTERACTIVES!</a></li>
           </ol>
         </nav>
       </div>
 
-      <div id="col-color">
-        <input type="text" id="color-input" placeholder="#FFFFFF">
-        <button id="color-button">OK!</button>
-        <div id="color-box">
-          <p id="color-box-text"></p>
-        </div>
+      <div class="font-controll">
+        <p>Change Font Size</p>
+        <button id="increase-font">+</button>
+        <button id="default-font">Default</button>
+        <button id="decrease-font">-</button>
       </div>
     </div>
 
@@ -76,6 +76,32 @@
         <li>email: <a href="mailto:nnyjan02426@gmail.com">nnyjan02426@gmail.com</a>
       </ul>
     </section>
+
+    <hr>
+
+    <section id="funs">
+      <h2>Fun Interactives!</h2>
+      <br>
+      <div id="coloring">
+        <div id="color-input">
+          <input type="text" placeholder="#FFFFFF">
+          <button>OK!</button>
+        </div>
+        <div id="color-box" class="box">
+          <p></p>
+        </div>
+      </div>
+
+      <div id="quote">
+        <br>
+        <button id="quote-button">GET QUOTE</button>
+        <div id="quote-box" class="box">
+          <p id="quote-text"></p>
+          <p id="quote-cite"></p>
+        </div>
+      </div>
+
+    </section>
   </main>
 
   <footer>
@@ -83,26 +109,63 @@
     <p>Last updated: <span id="last-modified"></span></p>
   </footer>
 
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script>
-    // Get the last modified date of website
-    document.getElementById("last-modified").textContent = document.lastModified;
+    // font controll
+    let fontSizePercentage = 100;
+    $("body").css("font-size", fontSizePercentage + "%");
+    $("#increase-font").click(function () {
+      fontSizePercentage += 10;
+      $("body").css("font-size", fontSizePercentage + "%");
+    })
+    $("#default-font").click(function () {
+      fontSizePercentage = 100;
+      $("body").css("font-size", fontSizePercentage + "%");
+    })
+    $("#decrease-font").click(function () {
+      if (fontSizePercentage <= 50) return;
+      fontSizePercentage -= 10;
+      $("body").css("font-size", fontSizePercentage + "%");
+    })
 
-    // text in color box
-    document.getElementById("color-box-text").textContent = "try changing the color of this box!";
-
-    // set color depending on user's input
-    document.getElementById('color-button').addEventListener('click', function () {
-      const colorValue = document.getElementById('color-input').value;
-      // Regular expression to validate hex color
+    // color-box
+    document.querySelector("#color-box > p").textContent = "try changing the color of this box!";
+    document.querySelector('#color-input > button').addEventListener('click', function () {
+      const colorValue = document.querySelector('#color-input > input').value;
       const validInput = /^#([0-9A-F]{3}|[0-9A-F]{6})$/i.test(colorValue);
 
       if (validInput) {
         document.getElementById('color-box').style.backgroundColor = colorValue; // Change the box color
-        document.getElementById("color-box-text").textContent = "";
+        document.querySelector("#color-box > p").textContent = "";
       } else {
         alert('Invalid input.\nPlease enter a valid hex color code.\n(e.g., #2a321f).');
       }
     });
+
+    // quote
+    document.getElementById("quote-text").textContent = "click on the button to get a random quote!";
+    document.addEventListener("DOMContentLoaded", () => {
+      const button = document.getElementById("quote-button");
+      const quote = document.getElementById("quote-text");
+      const cite = document.getElementById("quote-cite");
+
+      async function updateQuote() {
+        const response = await fetch("https://quoteslate.vercel.app/api/quotes/random");
+        const json = await response.json();
+        if (response.ok) {
+          quote.textContent = json.quote;
+          cite.textContent = "- " + json.author;
+        } else {
+          quote.textContent = "An error occured";
+          console.log(data);
+        }
+      }
+
+      button.addEventListener("click", updateQuote);
+    })
+
+    // Get the last modified date of website
+    document.getElementById("last-modified").textContent = document.lastModified;
   </script>
 </body>
 
