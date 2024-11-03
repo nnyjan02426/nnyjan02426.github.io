@@ -116,14 +116,10 @@ button {
   text-align: right;
 }
 
-@media only screen and (min-width: 700px) {
+@media only screen and (min-width: 300px) {
   [class*="row-"] {
     display: flex;
     justify-content: space-between;
-  }
-
-  #col-index {
-    width: 80%;
   }
 
   #col-project_name {
